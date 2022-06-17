@@ -24,7 +24,7 @@ document.addEventListener("keydown", event => {
             interval = setInterval(moveLeft, 0);
         }
         if(event.key==="ArrowRight"){
-            interval = setInterval(moveRight, 1);
+            interval = setInterval(moveRight, 0);
         }
     }
 });
