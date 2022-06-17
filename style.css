@@ -13,7 +13,7 @@
     width: 20px;
     height: 20px;
     background-color: navy;
-    border-radius: 70%;
+    border-radius: 100%;
     position: relative;
     top: 400px;
     left: 190px;
@@ -23,7 +23,7 @@
     width: 400px;
     height: 20px;
     background-color: black;
-    position: moving;
+    position: relative;
     top: 100px;
     margin-top: -20px;
 }
