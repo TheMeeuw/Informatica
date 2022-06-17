@@ -14,3 +14,5 @@ Tegen het eind van de derde periode zijn we dus bezig geweest met het uitvinden 
 De scripts hadden we rond midden-vierde periode voor elkaar en verwerkt in github bestandjes, met dus deze game als eind product.
 
 Wat hebben we geleerd: Grotendeels begrijpen hoe scripts werken en hoe je ze kunt verwerken, hoe je github kunt gebruiken, dat groepswerk essentieel kan werken met goede communicatie.
+
+De Game:https://themeeuw.github.io/Informatica/Index.html
