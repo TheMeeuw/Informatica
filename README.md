@@ -16,3 +16,9 @@ De scripts hadden we rond midden-vierde periode voor elkaar en verwerkt in githu
 Wat hebben we geleerd: Grotendeels begrijpen hoe scripts werken en hoe je ze kunt verwerken, hoe je github kunt gebruiken, dat groepswerk essentieel kan werken met goede communicatie.
 
 De Game:https://themeeuw.github.io/Informatica/Index.html
+
+
+tijdens ons proces van het maken van het Javascript zijn we meerdere problemen tegengekomen vooral bij het bewegen, we begonnen met een probleem als beide pijl toetsen ingedrukt werden op hetzelfde moment, dat wisten wij kort tijdig een oplossing voor te vinden door ze samen 0 te maken waardoor je stil stond. Dit werd na maten van tijd steeds irritanter dus zochten wij naar een oplossing meerdere oplossingen maakte het alleen maar erger totdat wij uiteindelijk tot deze kwamen.
+Ook maakt onze game er gebruik van dat deste meer punten je haalt deste sneller de muren bewegen, je begint dus eerst relatief met weinig problemen, maar uiteindelijk wordt het steeds lastiger om naar de gaten te komen.
+
+in ieder geval vonden wij dit een hele leuke ervaring om te maken en zouden we het allemaal nogmaals doen.
