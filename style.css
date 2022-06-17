@@ -30,8 +30,13 @@
 .hole{
     width: 40px;
     height: 20px;
-    background-color: cyan;
+    background-color: gray;
     position: relative;
     top: 100px;
     margin-top: -20px;
+}
+p1
+{
+	color: red;
+	margin-left: 250px;
 }
