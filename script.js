@@ -21,7 +21,7 @@ document.addEventListener("keydown", event => {
     if(both==0){
         both++;
         if(event.key==="ArrowLeft"){
-            interval = setInterval(moveLeft, 1);
+            interval = setInterval(moveLeft, 0);
         }
         if(event.key==="ArrowRight"){
             interval = setInterval(moveRight, 1);
