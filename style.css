@@ -22,7 +22,7 @@
 .block{
     width: 400px;
     height: 20px;
-    background-color: black;
+    background-color: gray;
     position: relative;
     top: 100px;
     margin-top: -20px;
