@@ -1,36 +1,34 @@
 var character = document.getElementById("character");
 var game = document.getElementById("game");
+var scoreBoard = document.getElementById("score");
 var interval;
 var both = 0;
 var counter = 0;
+var inputLeft = 0;
+var inputRight = 0;
+var linearMovement = 0;
 var currentBlocks = [];
 
-function moveLeft(){
-    var left = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-    if(left>0){
-        character.style.left = left - 2 + "px";
-    }
-}
-function moveRight(){
-    var left = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-    if(left<380){
-        character.style.left = left + 2 + "px";
-    }
-}
 document.addEventListener("keydown", event => {
-    if(both==0){
-        both++;
         if(event.key==="ArrowLeft"){
-            interval = setInterval(moveLeft, 0);
+            console.log("left 1");
+            inputLeft = 1;
         }
         if(event.key==="ArrowRight"){
-            interval = setInterval(moveRight, 0);
+            console.log("right 1");
+            inputRight = 1;
         }
-    }
 });
+
 document.addEventListener("keyup", event => {
-    clearInterval(interval);
-    both=0;
+    if(event.key==="ArrowLeft"){
+        console.log("left 0");
+        inputLeft = 0;
+    }
+    if(event.key==="ArrowRight"){
+        console.log("right 0");
+        inputRight = 0;
+    }
 });
 
 var blocks = setInterval(function(){
@@ -39,6 +37,7 @@ var blocks = setInterval(function(){
     if(counter>0){
         var blockLastTop = parseInt(window.getComputedStyle(blockLast).getPropertyValue("top"));
         var holeLastTop = parseInt(window.getComputedStyle(holeLast).getPropertyValue("top"));
+        var holeLastLeft = parseInt(window.getComputedStyle(holeLast).getPropertyValue("left"));
     }
     if(blockLastTop<400||counter==0){
         var block = document.createElement("div");
@@ -50,38 +49,46 @@ var blocks = setInterval(function(){
         block.style.top = blockLastTop + 100 + "px";
         hole.style.top = holeLastTop + 100 + "px";
         var random = Math.floor(Math.random() * 360);
+        while(counter > 10 && Math.abs(random - holeLastLeft) < 101) random = Math.floor(Math.random() * 360);
+        console.log(random);
         hole.style.left = random + "px";
         game.appendChild(block);
         game.appendChild(hole);
         currentBlocks.push(counter);
         counter++;
+        scoreBoard.innerText = counter-5;
     }
     var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     var characterLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
     var drop = 0;
     if(characterTop <= 0){
-        alert("Game over. Score: "+(counter-9));
+        alert("Game over. Score: "+(counter-5));
         clearInterval(blocks);
         location.reload();
     }
+    //Vertical Movement
+    var thruHole = 0;
     for(var i = 0; i < currentBlocks.length;i++){
-        let current = currentBlocks[i];
-        let iblock = document.getElementById("block"+current);
-        let ihole = document.getElementById("hole"+current);
+        let iblock = document.getElementById("block"+currentBlocks[i]);
+        let ihole = document.getElementById("hole"+currentBlocks[i]);
         let iblockTop = parseFloat(window.getComputedStyle(iblock).getPropertyValue("top"));
         let iholeLeft = parseFloat(window.getComputedStyle(ihole).getPropertyValue("left"));
-        iblock.style.top = iblockTop - 0.5 + "px";
-        ihole.style.top = iblockTop -  0.5 + "px";
+        var scrollSpeed = Math.min(0.3 + counter * 0.01 , 1.5)
+        iblock.style.top = iblockTop - scrollSpeed + "px";
+        ihole.style.top = iblockTop - scrollSpeed + "px";
         if(iblockTop < -20){
             currentBlocks.shift();
             iblock.remove();
             ihole.remove();
         }
-        if(iblockTop-20<characterTop && iblockTop>characterTop){
+        if(iblockTop-24<characterTop && iblockTop>characterTop){
             drop++;
             if(iholeLeft<=characterLeft && iholeLeft+20>=characterLeft){
                 drop = 0;
             }
+        }
+        if(iholeLeft<=characterLeft && iholeLeft+20>=characterLeft && iblockTop-24<characterTop && iblockTop>characterTop){
+            thruHole = 1;
         }
     }
     if(drop==0){
@@ -89,6 +96,20 @@ var blocks = setInterval(function(){
             character.style.top = characterTop + 2 + "px";
         }
     }else{
-        character.style.top = characterTop - 0.5 + "px";
+        character.style.top = characterTop - scrollSpeed + "px";
+    }
+    //Horizontal Movement
+    if (inputLeft || inputRight){
+        var left = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
+        linearMovement = inputRight * 2 - inputLeft * 2;
+        console.log("move me " + linearMovement)
+        if(!thruHole){
+            left += linearMovement;
+            if (linearMovement > 0) character.style.transform = "scaleX(1)";
+            else character.style.transform = "scaleX(-1)";
+        }
+        if(left < 0) left = 0;
+        if(left > 380) left = 380;
+        character.style.left = (left) + "px";
     }
 },1);
