@@ -23,7 +23,7 @@
     width: 400px;
     height: 20px;
     background-color: black;
-    position: relative;
+    position: moving;
     top: 100px;
     margin-top: -20px;
 }
