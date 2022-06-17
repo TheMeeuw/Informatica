@@ -89,6 +89,6 @@ var blocks = setInterval(function(){
             character.style.top = characterTop + 2 + "px";
         }
     }else{
-        character.style.top = characterTop - 0.5 + "px";
+        character.style.top = characterTop - 1.5 + "px";
     }
 },1);
