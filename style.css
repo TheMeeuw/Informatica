@@ -11,13 +11,18 @@
 }
 #character{
     width: 20px;
-    height: 20px;
-    background-color: navy;
+    height: 26px;
+    background-color:
     border-radius: 100%;
     position: relative;
     top: 400px;
     left: 190px;
     z-index: 1000000;
+    background-image:    url(https://cdn.discordapp.com/emojis/416633501010362390.webp?size=128&quality=lossless);
+    background-size:     20px 26px;
+    background-repeat:   no-repeat;
+    background-position: center center;
+
 }
 .block{
     width: 400px;
