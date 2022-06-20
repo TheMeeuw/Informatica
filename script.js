@@ -1,4 +1,4 @@
-var character = document.getElementById("character");
+ar character = document.getElementById("character");
 var game = document.getElementById("game");
 var scoreBoard = document.getElementById("score");
 var interval;
