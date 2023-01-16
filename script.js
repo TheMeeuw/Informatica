@@ -10,22 +10,22 @@ var linearMovement = 0;
 var currentBlocks = [];
 
 document.addEventListener("keydown", event => {
-        if(event.key==="97"){
+        if(event.key==="a"){
             console.log("left 1");
             inputLeft = 1;
         }
-        if(event.key==="100"){
+        if(event.key==="d"){
             console.log("right 1");
             inputRight = 1;
         }
 });
 
 document.addEventListener("keyup", event => {
-    if(event.key==="97"){
+    if(event.key==="a"){
         console.log("left 0");
         inputLeft = 0;
     }
-    if(event.key==="100"){
+    if(event.key==="d"){
         console.log("right 0");
         inputRight = 0;
     }
